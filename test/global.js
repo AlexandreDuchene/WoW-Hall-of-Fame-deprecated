@@ -2,7 +2,6 @@ const Frisbee = require('frisbee');
 const Mongoose = require('@ladjs/mongoose');
 const _ = require('lodash');
 
-const api = require('../api');
 const web = require('../web');
 const config = require('../config');
 const logger = require('../helpers/logger');

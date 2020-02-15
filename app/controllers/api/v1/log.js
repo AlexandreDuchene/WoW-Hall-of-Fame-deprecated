@@ -1,7 +1,4 @@
-const auth = require('basic-auth');
 const parseLogs = require('parse-logs');
-
-const policies = require('../../../../helpers/policies');
 
 async function parseLog(ctx) {
   ctx.body = 'OK';
@@ -13,14 +10,4 @@ async function parseLog(ctx) {
   }
 }
 
-async function checkToken(ctx, next) {
-  try {
-    await policies.ensureApiToken(ctx, next);
-  } catch (err) {
-    const credentials = auth(ctx.req);
-    if (typeof credentials !== 'undefined') ctx.logger.error(err);
-    return next();
-  }
-}
-
-module.exports = { parseLog, checkToken };
+module.exports = { parseLog };

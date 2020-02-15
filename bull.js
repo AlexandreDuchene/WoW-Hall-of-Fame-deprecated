@@ -3,12 +3,10 @@ const Graceful = require('@ladjs/graceful');
 const pSeries = require('p-series');
 
 const config = require('./config');
-const queues = require('./queues');
 const logger = require('./helpers/logger');
 
 const bull = new Bull({
   logger,
-  queues,
   queue: {
     prefix: `bull_${config.env}`
   }
@@ -22,10 +20,6 @@ if (!module.parent) {
 
   (async () => {
     try {
-      // mandarin (translation)
-      const mandarin = bull.queues.get('mandarin');
-      await pSeries([() => mandarin.empty(), () => mandarin.add()]);
-
       await Promise.all([bull.start(), graceful.listen()]);
 
       if (process.send) process.send('ready');
