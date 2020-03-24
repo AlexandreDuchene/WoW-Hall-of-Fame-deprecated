@@ -1,3 +1,6 @@
+
+
+# ⚠️ ABANDONED - DO NOT USE ⚠️
 # wow-hall-of-fame
 
 [![build status](https://img.shields.io/travis/com/alexandreduchene/wow-hall-of-fame.svg)](https://travis-ci.org/alexandreduchene/wow-hall-of-fame)
